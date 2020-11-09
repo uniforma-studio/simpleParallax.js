@@ -73,11 +73,11 @@ class ParallaxInstance {
                 // apply the transition style on the image
                 this.setTransitionCSS();
 
-                //add isInit class
+                // add isInit class
                 this.elementContainer.classList.add('simple-parallax-initialized');
             }, 10);
         } else {
-            //add isInit class
+            // add isInit class
             this.elementContainer.classList.add('simple-parallax-initialized');
         }
 
@@ -94,7 +94,7 @@ class ParallaxInstance {
         // create a .simpleParallax wrapper container
         // if there is a custom wrapper
         // override the wrapper with it
-        let wrapper = this.customWrapper || document.createElement('div');
+        const wrapper = this.customWrapper || document.createElement('div');
 
         wrapper.classList.add('simpleParallax');
         wrapper.style.overflow = 'hidden';
@@ -217,8 +217,7 @@ class ParallaxInstance {
         // rounding percentage to a 1 number float to avoid unn unnecessary calculation
         let percentage = ((viewport.positions.bottom - this.elementTop) / ((viewport.positions.height + this.elementHeight) / 100)).toFixed(1);
 
-        // sometime the percentage exceeds 100 or goes below 0
-        percentage = Math.min(100, Math.max(0, percentage));
+        percentage = Math.max(0, percentage);
 
         // if a maxTransition has been set, we round the percentage to that number
         if (this.settings.maxTransition !== 0 && percentage > this.settings.maxTransition) {

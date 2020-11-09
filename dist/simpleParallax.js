@@ -1,6 +1,6 @@
 /*!
  * simpleParallax - simpleParallax is a simple JavaScript library that gives your website parallax animations on any images or videos, 
- * @date: 20-08-2020 14:0:14, 
+ * @date: 09-11-2020 11:40:46, 
  * @version: 5.6.2,
  * @link: https://simpleparallax.com/
  */
@@ -467,14 +467,13 @@ var parallax_ParallaxInstance = /*#__PURE__*/function () {
     value: function getTranslateValue() {
       // calculate the % position of the element comparing to the viewport
       // rounding percentage to a 1 number float to avoid unn unnecessary calculation
-      var percentage = ((viewport.positions.bottom - this.elementTop) / ((viewport.positions.height + this.elementHeight) / 100)).toFixed(1); // sometime the percentage exceeds 100 or goes below 0
-
-      percentage = Math.min(100, Math.max(0, percentage)); // if a maxTransition has been set, we round the percentage to that number
+      var percentage = ((viewport.positions.bottom - this.elementTop) / ((viewport.positions.height + this.elementHeight) / 100)).toFixed(1);
+      percentage = Math.max(0, percentage); // if a maxTransition has been set, we round the percentage to that number
 
       if (this.settings.maxTransition !== 0 && percentage > this.settings.maxTransition) {
         percentage = this.settings.maxTransition;
       } // sometime the same percentage is returned
-      // if so we don't do aything
+      // if so we don't do anything
 
 
       if (this.oldPercentage === percentage) {
@@ -489,7 +488,7 @@ var parallax_ParallaxInstance = /*#__PURE__*/function () {
 
 
       this.translateValue = (percentage / 100 * this.rangeMax - this.rangeMax / 2).toFixed(0); // sometime the same translate value is returned
-      // if so we don't do aything
+      // if so we don't do anything
 
       if (this.oldTranslateValue === this.translateValue) {
         return false;
